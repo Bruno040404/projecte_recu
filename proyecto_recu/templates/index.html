@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centrar Contenido</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+          <a href="#" class="navbar-brand">Web</a>
+          <ul class="navbar-menu">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="/apis">Video</a></li>
+          </ul>
+        </div>
+      </nav>
+
+<div class="imagen2">
+    <img src="/static/imagen2.jpg">
+</div>
+
+<div class = "container">
+    <img src="/static/southPark.jpg" alt="South Park">
+    <h1>Buscar Personaje</h1>
+    <form action="/" method="post">
+    <label for="personaje_id">ID del Personaje:</label>
+    <input type="text" id="personaje_id" name="personaje_id">
+    <button type="submit">Buscar</button>
+
+    {% if data and 'data' in data %}
+    <h1>Informacion del personaje</h1>
+    <p>ID: {{ data['data']['id'] }}</p>
+    <p>Nombre: {{ data['data']['name'] }}</p>
+    <p>Edad: {{ data['data']['age'] }}</p>
+    <p>Sexo: {{ data['data']['sex'] }}</p>
+    <p>Color de Cabello: {{ data['data']['hair_color'] }}</p>
+    <p>Ocupación: {{ data['data']['occupation'] }}</p>
+    <p>Grado: {{ data['data']['grade'] }}</p>
+    <p>Religión: {{ data['data']['religion'] }}</p>
+    <p>Voz: {{ data['data']['voiced_by'] }}</p>
+    <p>Creado en: {{ data['data']['created_at'] }}</p>
+    <p>Actualizado en: {{ data['data']['updated_at'] }}</p>
+    <h1>Personajes relacionados</h1>
+    <p>Relation: {{ data['data']['relatives'] }}</p>
+    <img src="/static/kyle.png">
+
+    {% endif %}
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Mi Sitio Web. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
